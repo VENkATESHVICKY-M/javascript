@@ -1,0 +1,79 @@
+body{
+   
+    background-color: bisque;
+}
+#search{
+    width: 30cm;
+    height: 1cm;
+    border: 2px;
+    border-radius: 8px;
+}
+
+#search_one{
+    
+    height: 1cm;
+    width: 7cm;
+    border-radius: 8px;
+    border: 2px;
+}
+#myimg{
+    width: 250px;
+    height: 100px;
+
+}
+img{
+    width: 50px;
+    height: 30px;
+}
+/*---------------------------------*/
+ ul#ul_id{
+   
+    display: flex;
+    list-style-type: none;
+    align-items:center;
+    float: right;
+  }
+  ul#ulel_id{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+   
+  }
+  
+
+
+  li#liel_id {
+    
+    display: inline;
+    font-size: 20px;
+    padding: 20px;
+  }
+  ul{
+   
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+.one{
+    padding: 10px;
+    margin-left: 100px;
+    align-items: stretch;
+    
+}
+
+.three{
+margin-left:550px;
+margin-top: 120px;
+
+}
+
+  
