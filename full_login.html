@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>FULL LOGIN FORM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="login.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+       <style>
+       .error{
+           color:red;
+       }
+       </style>
+        <form name="login_form"target="_self" action="demo.html">
+        <div class="container" >
+            <div class="card" >
+                <h1 id="headerTitle" class="lg">Login Page</h1>
+
+                <input type="Fname" placeholder="FirstName" id="txtFname"><br>
+                    <span class="error" id="Fname_error"></span><br>
+                <input type="Lname" placeholder="LastName" id="txtLname"><br>
+                    <span class="error" id="Lname_error"></span><br>
+                <input type="email" placeholder="Email" id="txtEmail"><br>
+                    <span class="error" id="Email_error"></span><br>
+                <input type="password" placeholder="Password" id="txtPwd" ><br>
+                    <span class="error" id="Pwd_error"> </span><br>
+                <input type="password" placeholder="Confirm Password" id="txtCPwd" ><br>
+                    <span class="error" id="C_Pwd_error"> </span><br>
+
+                <p id="gender_id">Gender:</p>
+                    <input type="radio" id="gender" name="gender" value="male" >
+                <label for="male_gender">Male</label>
+                    <input type="radio" id="gender" name="gender" value="female">
+                <label for="female_gender">Female</label>
+                <p class="error" id="Gender_error"></p>
+                
+                <label for="dept">Choose Department:</label><br>
+                    <select name="dept" id="dept">
+                        <option value="CS">CS</option>
+                        <option value="CHEMICAL">CHEMICAL</option>
+                        <option value="PHYSICS">PHYSICS</option>
+                        <option value="ENGLISH">EMGLLISH</option>
+                    </select>
+                    <p id="Dpt_error"></p>
+                <input type="button"  value="submit" id="button">
+        
+            </div>
+        </div>
+        </form>
+   
+
+        
+    </body>
+    <script>
+    $(document).ready(function(){
+        $("#button").click(function(){
+            var first_name = $('#txtFname').val();  
+            var last_name = $('#txtLname').val();  
+            var email = $('#txtEmail').val();  
+            var password = $('#txtPwd').val();  
+            var cpassword = $('#txtCPwd').val();  
+            var gender = $('#gender_id').val();
+
+            
+            
+                if(first_name==''){
+                    $("#txtFname").css("border-color", "red");
+                    $("#Fname_error").text("Required");
+                     
+                }else{
+                    $("#txtFname").css("border-color", "");
+                    $("#Fname_error").text("");
+                    
+                }
+                
+                if(last_name==''){ 
+                    $("#txtLname").css("border-color", "red");
+                    $("#Lname_error").text("Required");
+                     
+                }else{
+                    $("#txtLname").css("border-color", "");
+                    $("#Lname_error").text("");
+                    
+                }
+                if(email==''){
+                    $("#txtEmail").css("border-color", "red");
+                    $("#Email_error").text("Field Required!!");
+                     
+
+                }else{
+                    $("#txtEmail").css("border-color", "");
+                    $("#Email_error").text("");
+                    
+                }
+                if(password==''){
+                    $("#txtPwd").css("border-color", "red");
+                    $("#Pwd_error").text("Field Required!!");
+                     
+                }else{
+                    $("#txtPwd").css("border-color", "");
+                    $("#Pwd_error").text("");
+                    
+                }
+                if(cpassword==''){
+                    $("#txtCPwd").css("border-color", "red");
+                    $("#C_Pwd_error").text("Field Required!!");
+                     
+                }else{
+                    $("#txtCPwd").css("border-color", "");
+                    $("#C_Pwd_error").text("");
+                    
+                }
+                 /*if(gender==''){
+                    $("#Gender_error").text("Gender Field Required!!");
+                     
+                }else{
+                    
+                    $("#Gender_error").text("");
+                    
+                }*/
+            
+        });
+    });
+
+    </script>
+
+</html>
+
+

@@ -1,0 +1,54 @@
+body{
+    margin:0;
+    padding:0;
+    background-color:powderblue;
+    }
+.container{
+    margin-left: 40%;
+    margin-top: 2cm;
+    }
+.card{
+    margin: auto;
+    border-radius:8px;
+    
+    }
+
+#txtEmail{
+border:none;
+padding:10px;
+margin-bottom:10px;
+border: 1px solid grey;
+}	
+
+#txtPwd{
+    
+    padding:10px;
+    border: 1px solid grey;
+}
+#txtCPwd{
+    
+    padding:10px;
+    
+    border: 1px solid grey;
+}
+#txtFname{
+    
+    padding:10px;
+    
+    border: 1px solid grey;
+    }
+#txtLname{
+    
+    padding:10px;
+    
+    border: 1px solid grey;
+    }	
+
+#button{
+margin-left:1cm;
+border-radius:5px;
+height:1cm;
+width:3cm;
+background:green;
+
+}

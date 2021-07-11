@@ -1,46 +1,75 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="demo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<html>
-    <head>  
-        <title>Google page</title>
-        <link rel="stylesheet" href="demo.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-       
-    </head>
-    <body>
-        <div class="container one">
-         <ul >
-            
-            <li ><form> <input type="text" id='search' name='search box' placeholder='search here'></form></li>
-            <li><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
-             </ul>
+</head>
+<body>
+
+<div class="container-fluid " id="one" >
+        <header>
+        <div class="form-group " id="onesearch" >
+         
+            <ul id="id">
+                <li id="id"><form><input type="text" class="form-control" id="usr" placeholder="search"></form></li>
+                <li id="id" ><button type="button" class="btn btn-success">click</button></li>
+                <li id="id" ><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+            </ul>   
         </div>
-        <br>
+        </header>
+        <br><br>
         <hr>
-        
-            <div class="container two">
-                <ul id="ul_id">
-                        
-                        <li id ="li_id"><a href="#" target="_blank">Images</a></li>
-                        <li  id ="li_id"><a href="#" target="_blank">Gmail</a></li>
-                        <li  id ="li_id"><a href="#" target="_blank">Youtube</a></li>
-                        <li id ="li_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
-                </ul>
+
+
+        <div class="container">
+            <ul class="nav justify-content-end ">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Youtube</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gmail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" >
+                </li>
+            </ul>
+        </div>
+</div>  
+        <div class="container bg-success">
+        <div class="row">
+        <div class="col align-self-center" id="thre">
+            <a><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" id="myimg"/ ></a>
+            <div class="form-group " id="onesearch" >
+                <form><input type="text" class="form-control" id="usr" placeholder="search"></form>
             </div>
-            <div class="container three">
-                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" id="myimg"/ >
-                <form> <input type="text" id='search_one' name='search box' placeholder='search here'></form><br>
-                <div class="elements">
-                    <ul id="ulel_id">
-                        <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
-                        <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
-                        <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+           
+                 <ul class="nav justify-content-end ">
+                    <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+                    <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+                    <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+    
+                </ul>
+
+            
+        </div>
+        </div>
+        </div>
        
-                    </ul>
 
-                </div>
         
-    </body>
-</html>
-
                 
+            
+    
+
+</body>
+</html>

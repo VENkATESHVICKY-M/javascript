@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>login page</title>
+<link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+
+<form name="login_form"target="_self" action="demo.html" method="post" onsubmit="return doLogin()">
+<div class="container" >
+	<div class="card" >
+	    <h1 id="headerTitle" class="lg">Login Page</h1>
+		<input type="email" placeholder="mail" id="txtEmail"><br>
+        <p><span class="error"><p id="Email_error"></p></span></p>
+
+		<input type="password" placeholder="password" id="txtPwd" ><br>
+        <p><span class="error"><p id="Pwd_error"></p></span></p>
+
+      <input type="submit"  value="submit" id="button">
+		
+	</div>
+</div>
+</form>
+
+</body>
+
+<script>
+
+//var headerElement = document.getElementById("headerTitle");
+//headerElement.innerHtml = "Login Form";
+
+function doLogin(){
+  /*   var email =  document.getElementById("txtEmail");
+    var pwd =  document.getElementById("txtPwd");
+
+   if(email.value == "" || pwd.value == ""){
+       alert("Please enter your credentidals");
+       return false;
+   }
+
+    else if(email.value == "admin@gmail.com" && pwd.value == "12345678"){
+       return true;
+   }
+   else{
+       alert("You are not Authorized");
+       return false;
+   }*/
+   //-------------------------------------------------------------------------
+    var error = 0;
+    var Mail = document.forms["login_form"]["txtEmail"].value;
+    document.getElementById('Email_error').innerHTML = '';
+    
+    if (Mail == null || Mail == ""){
+        ++error;
+        document.getElementById('Email_error').innerHTML = 'email must be filled out';
+        document.getElementById('Email_error').style.color = "red";
+        document.getElementById('txtEmail').style.borderColor = "red";
+        console.log(error);
+    }
+    else{
+        document.getElementById('Email_error').innerHTML = '';
+         document.getElementById('Email_error').style.color = "";
+        document.getElementById('txtEmail').style.borderColor = "";
+    }
+
+    var Pwd = document.forms["login_form"]["txtPwd"].value;
+    document.getElementById('Pwd_error').innerHTML = '';
+    if (Pwd == null || Pwd == ""){
+        ++error;
+        document.getElementById('Pwd_error').innerHTML = 'password must be filled out';
+        document.getElementById('Pwd_error').style.color = "red";
+        document.getElementById('txtPwd').style.borderColor = "red";
+        console.log(error);
+    } 
+    else{
+        if(Pwd == "12345678" && Mail == "admin@gmail.com"){
+            return ture;
+        }
+        else if(Pwd != "12345678"){
+            document.getElementById('Pwd_error').innerHTML = 'you password is not authorized ';
+            return false;
+        }
+        else if(Mail != "admin@gmail.com"){
+            document.getElementById('Email_error').innerHTML = 'you mailid is not authorized ';
+            return false;
+        }
+        else{
+            document.getElementById('Pwd_error').innerHTML = 'you are not authorized ';
+            //document.getElementById('Pwd_error').style.color = "red";
+            return false;
+        }
+    }
+    
+    if(error>0){
+        return false;
+    }
+    return true;
+
+}
+
+</script>
+</html>

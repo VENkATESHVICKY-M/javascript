@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="demo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid bg-info" id="one" >
+        <div class="form-group " id="onesearch"  >
+         <ul style="float:right;background:red;">
+            <li ><form><input type="text" class="form-control" id="usr" placeholder="search" style="width:auto;"></form></li>
+            <li ><button type="button" class="btn btn-success">click</button></li>
+            <li ><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+        </ul>
+        </div>
+        <br><br>
+    </div>  
+        <!--
+                <div class="container" id="two">
+                <ul id="ul_id">
+                        
+                        <li id ="li_id"><a href="#" target="_blank">Images</a></li>
+                        <li  id ="li_id"><a href="#" target="_blank">Gmail</a></li>
+                        <li  id ="li_id"><a href="#" target="_blank">Youtube</a></li>
+                        <li id ="li_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+                </ul>
+            </div>
+            <div class="container " id="three">
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" id="myimg"/ >
+                <form> <input type="text" id='search_one' name='search box' placeholder='search here'></form><br>
+                <div class="container" id="elements">
+                    <ul id="ulel_id">
+                        <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+                        <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+                        <li id ="liel_id"><img src="https://lh3.google.com/u/0/ogw/ADea4I76E09FtLAQD_n6k-2V-fM8WlTNxyyIbw-8WS0l=s32-c-mo" ></li>
+       
+                    </ul>
+
+                </div>
+            </div>-->
+    
+
+</body>
+</html>
