@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>login page</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+.error{
+color:red;
+}
+</style>
+
+<form target="_self" id="myform"  >
+<div class="container-fluid "   >
+	<div class="row justify-content-center" >
+		<div class="col-lg-8 col-sm-8 col-md-8 col-8 pt-1   "  >
+			
+			<div class="form-group">
+				<h1 id="headerTitle" class="lg">Sign up!</h1> 
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 " >
+						<label for="Fname">FirstName:</label>
+						<input type="text" class="form-control" placeholder="FirstName" name="Fname" id="txtFname" > </input>
+							<span class="error" id="Fname_error"> </span>  
+					</div>
+					<div class="col-lg-6 col-sm-12">
+						<label for="Lname">LastName:</label>
+						<input type="text" class="form-control" placeholder="LastName" id="txtLname" name="Lname"> 
+							<span class="error" id="Lname_error"></span><br>
+					</div>
+				</div>
+				<label for="Email">Email_ID:</label>
+                <input type="email" class="form-control" placeholder="mail" id="txtEmail" name="Email"> 
+					<span class="error" id="Email_error"></span><br>
+				<div class="row">
+					<div class="col-lg-6 col-sm-12 ">
+						<label for="Password">Password:</label>
+						<input type="password" class="form-control" placeholder="password" id="txtPwd" name="Password"> 
+						 <span class="error" id="Pwd_error"></span><br>
+					</div>
+					<div class="col-lg-6 col-sm-12 ">
+						<label for="Confirm Password"> Confirm Password:</label>
+						<input type="password" class="form-control" placeholder="Confirm Password" id="txtCPwd" name="Confirm Password" > 
+							<span class="error" id="C_Pwd_error"> </span><br>
+					</div>
+				</div>
+                <p id="gender_id">Gender:
+                    <input  type="radio" id="male" name="gender" value="Male" >
+                <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                <label for="female ">Female</label><br>
+                <span class="error" id="Gender_error"></span> </p>
+                
+                <label for="dept">Choose Department:</label><br>
+                    <select name="dept" id="dept" style="width:100%;">
+						<option value="">----</option>
+                        <option value="CS">CS</option>
+                        <option value="CHEMICAL">CHEMICAL</option>
+                        <option value="PHYSICS">PHYSICS</option>
+                        <option value="ENGLISH">EMGLLISH</option>
+                    </select>
+                    <span class="error" id="Dpt_error"></span><br><br>
+				<div class="row  ">
+					<div class="col-lg-6 col-sm-12 ">
+						<input type="button" id="button_submit" class="btn btn-primary" value="Submit"  style="width:100%;">
+					</div>
+				
+					<div class="col-lg-6 col-sm-12 ">
+						<input type="button" id="button_clear" class="btn btn-danger" value="Clear"  style="width:100%;">
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+ 
+	
+</div>
+</form>
+</body>
+
+<script>
+
+    $(document).ready(function(){
+		 /*$('#button_clear').click(function(){
+			$("#myform").trigger("reset");
+		});*/
+		$("#button_clear").bind("click", function() {
+			$("input[type=password],[type=email],[type=text]").val("");
+		});
+		
+        $("#button_submit").click(function(){
+            
+			var first_name = $('#txtFname').val();  
+            var last_name = $('#txtLname').val();  
+            var email = $('#txtEmail').val();  
+            var password = $('#txtPwd').val();  
+            var cpassword = $('#txtCPwd').val();  
+            var gender_male = $('#male').is(':checked');
+			var gender_female = $('#female').is(':checked');
+			var dept= $('#dept').val();
+		
+		 
+            var validation_result =true;
+                if(first_name==''){
+                    $("#txtFname").css("border-color", "red");
+                    $("#Fname_error").text("Field Required");
+					validation_result=false;
+                     
+                }else{
+                    $("#txtFname").css("border-color", "");
+                    $("#Fname_error").text("");
+                    
+                }
+                
+                if(last_name==''){ 
+                    $("#txtLname").css("border-color", "red");
+                    $("#Lname_error").text("Field Required");
+                     validation_result=false;
+                }else{
+                    $("#txtLname").css("border-color", "");
+                    $("#Lname_error").text("");
+                    
+                }
+				if(email==''){
+					$("#txtEmail").css("border-color", "red");
+					$("#Email_error").text("Field Required!!");
+					validation_result=false;
+                }else{
+                    $("#txtEmail").css("border-color", "");
+                    $("#Email_error").text("");
+                    
+                }
+				
+				
+                
+                if(password==''){
+                    $("#txtPwd").css("border-color", "red");
+                    $("#Pwd_error").text("Field Required!!");
+					validation_result=false;
+                     
+                }else{
+                    $("#txtPwd").css("border-color", "");
+                    $("#Pwd_error").text("");
+                    
+                }
+
+                if(cpassword==''){
+                    $("#txtCPwd").css("border-color", "red");
+                    $("#C_Pwd_error").text("Field Required!!");
+					validation_result=false;
+                     
+                }else{
+                    $("#txtCPwd").css("border-color", "");
+                    $("#C_Pwd_error").text("");
+                    
+                }
+                 if(!gender_male && !gender_female){
+                    $("#Gender_error").text("Gender Field Required!!");
+                     validation_result=false;
+                }
+				if(!dept){
+					$("#Dpt_error").text("Field Required!!");
+					validation_result=false;
+				}
+            
+			
+			if(validation_result==true){
+				window.location='demo.html';
+				 
+			}
+			
+			
+			
+        });
+		$("#txtEmail").keydup(function(){
+					if(first_name!= ''){
+							$("#txtEmail").css("border-color", "");
+							$("#Email_error").text("");
+							
+						}
+					else{
+						$("#txtFname").css("border-color", "red");
+                        $("#Fname_error").text("Field Required");
+						validation_result=false;
+					}
+		});
+		$("#txtPwd").keyup(function(){
+							$("#txtPwd").css("border-color", "");
+							$("#Pwd_error").text(""); 
+							return true;
+		});
+		 $("#txtCPwd").keyup(function(){
+							$("#txtCPwd").css("border-color", "");
+							$("#C_Pwd_error").text("");return true;
+		});
+		$("#txtFname").keyup(function(){
+							$("#txtFname").css("border-color", "");
+							$("#Fname_error").text("");return true;
+		});
+		$("#txtLname").keyup(function(){
+							$("#txtLname").css("border-color", "");
+							$("#Lname_error").text("");return true;
+		});
+		$("#gender_id").click(function(){
+							$("#Gender_error").text("");
+		});
+		$("#dept").click(function(){
+							$("#Dpt_error").text("");
+		});
+		//$().ready(function(){---});........$().click(function(){});
+		
+		
+		
+		
+	});
+	
+
+    </script>
+
+</html>
