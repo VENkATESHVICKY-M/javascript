@@ -22,9 +22,9 @@
 color:red;
 }
 </style>
+<div class="container " >
+<form target="_self" id="myform">
 
-<form target="_self" id="myform"  >
-<div class="container-fluid "   >
 	<div class="row justify-content-center" >
 		<div class="col-lg-8 col-sm-8 col-md-8 col-8 pt-1   "  >
 			
@@ -33,7 +33,7 @@ color:red;
 				<div class="row">
 					<div class="col-lg-6 col-sm-12 " >
 						<label for="Fname">FirstName:</label>
-						<input type="text" class="form-control" placeholder="FirstName" name="Fname" id="txtFname" > </input>
+						<input type="text" class="form-control" placeholder="FirstName" name="Fname" id="txtFname"  > </input>
 							<span class="error" id="Fname_error"> </span>  
 					</div>
 					<div class="col-lg-6 col-sm-12">
@@ -73,47 +73,100 @@ color:red;
                         <option value="ENGLISH">EMGLLISH</option>
                     </select>
                     <span class="error" id="Dpt_error"></span><br><br>
+			 
 				<div class="row  ">
-					<div class="col-lg-6 col-sm-12 ">
-						<input type="button" id="button_submit" class="btn btn-primary" value="Submit"  style="width:100%;">
-					</div>
+					<div class="col text-center  ">
+						<input type="button" id="button_submit" class="btn btn-primary" value="Submit" data-toggle="modal" data-target="#myModal" >
 				
-					<div class="col-lg-6 col-sm-12 ">
-						<input type="button" id="button_clear" class="btn btn-danger" value="Clear"  style="width:100%;">
+						<input type="button" id="button_clear" class="btn btn-danger" value="Clear" >
 					</div>
 				</div>
+			 
 			</div>
 		</div>	
 	</div>
  
 	
-</div>
+
 </form>
+</div>
+<!-------------------------------------TABLES-------------------------------------------------------------->
+<div class="container text-center">
+<table id="tblRegisteredList" class="table">
+<thead>
+	<tr>
+		<th scope="col">FirstName</th>
+		<th scope="col">LastName</th>
+		<th scope="col">Email</th>
+		<th scope="col">Password</th>
+		<th scope="col">Department</th>
+		 
+	</tr>
+
+</thead>
+<tbody>
+	
+</tbody>
+</table>
+<!-------------------------------------MODALS-------------------------------------------------------------->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+		<button type="button" id="success_btn" data-dismiss="modal" class="btn btn-success" >Confirm</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
 </body>
 
 <script>
 
+	
+	
     $(document).ready(function(){
-		 /*$('#button_clear').click(function(){
-			$("#myform").trigger("reset");
-		});*/
+		 
 		$("#button_clear").bind("click", function() {
 			$("input[type=password],[type=email],[type=text]").val("");
 		});
+		let arrayName = [];
+		
+		 
 		
         $("#button_submit").click(function(){
-            
+           
 			var first_name = $('#txtFname').val();  
             var last_name = $('#txtLname').val();  
             var email = $('#txtEmail').val();  
             var password = $('#txtPwd').val();  
             var cpassword = $('#txtCPwd').val();  
             var gender_male = $('#male').is(':checked');
+			//var male=$("#male").val();
 			var gender_female = $('#female').is(':checked');
+			//var female=$("#female").val();
 			var dept= $('#dept').val();
-		
-		 
-            var validation_result =true;
+			console.log(dept);
+			 
+			
+			
+			var ch=10;
+			var validation_result =true;
                 if(first_name==''){
                     $("#txtFname").css("border-color", "red");
                     $("#Fname_error").text("Field Required");
@@ -143,9 +196,7 @@ color:red;
                     $("#Email_error").text("");
                     
                 }
-				
-				
-                
+
                 if(password==''){
                     $("#txtPwd").css("border-color", "red");
                     $("#Pwd_error").text("Field Required!!");
@@ -167,7 +218,7 @@ color:red;
                     $("#C_Pwd_error").text("");
                     
                 }
-                 if(!gender_male && !gender_female){
+                if(!gender_male && !gender_female){
                     $("#Gender_error").text("Gender Field Required!!");
                      validation_result=false;
                 }
@@ -178,41 +229,160 @@ color:red;
             
 			
 			if(validation_result==true){
-				window.location='demo.html';
-				 
-			}
+				//window.location='demo.html';
+				$("#success_btn").click(function(){
+					validate();
+					});
+				
+			}//validation_result
 			
-			
-			
+
+
         });
-		$("#txtEmail").keydup(function(){
-					if(first_name!= ''){
-							$("#txtEmail").css("border-color", "");
-							$("#Email_error").text("");
-							
-						}
-					else{
-						$("#txtFname").css("border-color", "red");
-                        $("#Fname_error").text("Field Required");
-						validation_result=false;
+		function validate(){
+			var first_name = $('#txtFname').val();  
+            var last_name = $('#txtLname').val();  
+            var email = $('#txtEmail').val();  
+            var password = $('#txtPwd').val();  
+            var cpassword = $('#txtCPwd').val();  
+            var gender_male = $('#male').is(':checked');
+			//var male=$("#male").val();
+			var gender_female = $('#female').is(':checked');
+			//var female=$("#female").val();
+			var dept= $('#dept').val();
+			let formRow ={
+					'first_name':first_name,
+					'last_name':last_name,
+					'email':email,
+					'password':password,
+					'dept':dept,
+				};
+				
+				arrayName.push(formRow);
+				//$('#tblRegisteredList tbody').html('');
+				//for(item in arrayName){
+				//console.log(item);
+				//for(i=0;i<arrayName.length;i++){
+				//$('#tblRegisteredList tbody').append('<tr><td>'+arrayName[i].first_name+'</td><td>'+arrayName[i].last_name+'</td><td>'+arrayName[i].email+'</td><td>'+arrayName[i].password+'</td><td>'+arrayName[i].dept+'</td></tr>');
+				//	}
+				//}
+				$('#tblRegisteredList tbody').append('<tr><td>'+ first_name+'</td><td>'+ last_name+'</td><td>'+ email+'</td><td>'+ password+'</td><td>'+dept+'</td></tr>');
+				/*
+				var row = '	<tr> <td>a</td> <td>b</td></tr>';
+				
+				$('#tblRegisteredList tbody').append(row);		*/		
+				 
+		}
+			keyevent();	 
+	});
+
+ 
+
+
+
+ function keyevent(){
+		var ch=10;
+ 		$("#txtEmail").keyup(function(){
+		
+		var email = $('#txtEmail').val();  
+             
+				if(email.trim()!=''){
+					$("#txtEmail").css("border-color", "");
+                    $("#Email_error").text("");
+					//////////////////////////////////////////////////////////
+                    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+					if (!filter.test(email)){
+					$("#txtEmail").css("border-color", "red");
+					if(email==''){ $("#Email_error").text("required");}
+					 
+                      
+					
 					}
+					 
+					  
+                     
+                }else{
+                    $("txtEmail").css("border-color", "red");
+                    $("Email_error").text("Field Required");
+                    
+                }
+					 		 
+							
 		});
+		
 		$("#txtPwd").keyup(function(){
-							$("#txtPwd").css("border-color", "");
-							$("#Pwd_error").text(""); 
-							return true;
+		 
+		var pwd = $('#txtPwd').val();  
+             
+				if(pwd.trim()!=''){
+                     
+					$("#txtPwd").css("border-color", "");
+                    $("#Pwd_error").text("");
+					 
+					if(pwd.length<ch){
+					 $("#txtPwd").css("border-color", "red");
+                     $("#Pwd_error").text("password must be 10 digits");
+					  return false;
+					} 
+                      return true;					 
+                }else{
+                    $("#txtPwd").css("border-color", "red");
+                    $("#Pwd_error").text("Field Required");
+                    
+                }
 		});
-		 $("#txtCPwd").keyup(function(){
-							$("#txtCPwd").css("border-color", "");
-							$("#C_Pwd_error").text("");return true;
+		$("#txtCPwd").keyup(function(){
+		var pwd = $('#txtPwd').val();
+		var cpwd = $('#txtCPwd').val();  
+             
+				if(cpwd.trim()!=''){
+                     
+					$("#txtCPwd").css("border-color", "");
+                    $("#C_Pwd_error").text("");
+					 
+					 if(cpwd!=pwd){
+						 $("#txtCPwd").css("border-color", "red");
+						 $("#C_Pwd_error").text(" confirm password is not matched");
+						 
+						 return false;
+					} 
+                      
+                     
+                }else{
+                    $("#txtCPwd").css("border-color", "red");
+                    $("#C_Pwd_error").text("Field Required");
+                    
+                }
 		});
 		$("#txtFname").keyup(function(){
-							$("#txtFname").css("border-color", "");
-							$("#Fname_error").text("");return true;
+		var first_name = $('#txtFname').val();  
+             
+				if(first_name.trim()!=''){
+                     
+					$("#txtFname").css("border-color", "");
+                    $("#Fname_error").text("");
+					  
+                     
+                }else{
+                    $("#txtFname").css("border-color", "red");
+                    $("#Fname_error").text("Field Required");
+                    
+                }
 		});
 		$("#txtLname").keyup(function(){
-							$("#txtLname").css("border-color", "");
-							$("#Lname_error").text("");return true;
+		var last_name = $('#txtLname').val();  
+             
+				if(last_name.trim()!=''){
+                     
+					$("#txtLname").css("border-color", "");
+                    $("#Lname_error").text("");
+					 
+                     
+                }else{
+                    $("#txtLname").css("border-color", "red");
+                    $("#Lname_error").text("Field Required");
+                    
+                }
 		});
 		$("#gender_id").click(function(){
 							$("#Gender_error").text("");
@@ -220,13 +390,8 @@ color:red;
 		$("#dept").click(function(){
 							$("#Dpt_error").text("");
 		});
-		//$().ready(function(){---});........$().click(function(){});
-		
-		
-		
-		
-	});
-	
+ 
+ }
 
     </script>
 
